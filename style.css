@@ -1,0 +1,84 @@
+body {
+  font-family: 'Georgia', serif;
+  margin:0; padding:0; background:#fef5e6; color:#4b2e2e;
+}
+
+header {
+  text-align:center; padding:25px 10px; background:#c0392b; color:#fff;
+}
+header h1 { margin:0; font-size:32px; }
+
+.lang button {
+  margin:0 5px; padding:5px 10px; border:none; border-radius:5px;
+  background:#e74c3c; color:#fff; cursor:pointer; transition:0.2s;
+}
+.lang button:hover { background:#c0392b; }
+
+.controls {
+  display:flex; flex-wrap:wrap; justify-content:center; gap:10px; padding:15px;
+}
+.controls input, .controls select {
+  padding:8px 12px; font-size:16px; border-radius:5px; border:1px solid #b03a2e;
+}
+.controls input:focus, .controls select:focus { border-color:#c0392b; }
+.controls button {
+  padding:8px 12px; border:none; border-radius:5px; background:#c0392b; color:#fff; cursor:pointer;
+  transition:0.2s;
+}
+.controls button:hover { background:#e74c3c; }
+
+/* Menu grid */
+.menu {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:20px; padding:20px;
+}
+
+.card {
+  background:#fff3e6; border-left:5px solid #c0392b; border-radius:8px;
+  padding:15px; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:0.3s;
+}
+.card:hover { transform:scale(1.03); }
+.card h3 { margin:0 0 5px; font-size:20px; color:#c0392b; }
+.card p { margin:0 0 10px; color:#5d4037; font-size:14px; }
+.price-add { display:flex; justify-content:space-between; align-items:center; }
+.price-add button { padding:5px 10px; background:#c0392b; color:#fff; border:none; border-radius:5px; cursor:pointer; }
+.price-add button:hover { background:#e74c3c; }
+
+/* Корзина справа */
+.cart-sidebar {
+  position:fixed; top:0; right:-350px; width:300px; height:100%;
+  background:#fff3e6; box-shadow:-4px 0 15px rgba(0,0,0,0.2); padding:20px; z-index:1000;
+  transition:0.3s;
+}
+.cart-sidebar.show { right:0; }
+.cart-sidebar h2 { color:#c0392b; margin-top:0; }
+.cart-sidebar p { font-weight:bold; }
+.cart-sidebar button {
+  width:100%; margin-top:5px; padding:8px 0; border:none; border-radius:5px; background:#c0392b; color:#fff; cursor:pointer;
+}
+.cart-sidebar button:hover { background:#e74c3c; }
+
+/* Нижние кнопки */
+.bottom-buttons {
+  position:fixed; bottom:0; left:0; width:100%; display:flex; justify-content:center; gap:10px;
+  background:#fef5e6; padding:10px 0; box-shadow:0 -4px 10px rgba(0,0,0,0.1);
+}
+.bottom-buttons button {
+  padding:10px 15px; font-size:16px; border:none; border-radius:5px; background:#c0392b; color:#fff; cursor:pointer;
+  transition:0.2s;
+}
+.bottom-buttons button:hover { background:#e74c3c; }
+
+/* Анимация карточки */
+@keyframes jump {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-10px); }
+  50% { transform: translateY(0); }
+  70% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+.card.added { animation: jump 0.4s ease; }
+
+/* Анимация подсветки корзины */
+.cart-sidebar.updated { box-shadow: -4px 0 20px rgba(192,57,43,0.8); }

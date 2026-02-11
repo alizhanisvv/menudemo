@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italian Premium Menu</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🍕 Italian Premium</h1>
+  <div class="lang">
+    <button onclick="setLang('ru')">RU</button>
+    <button onclick="setLang('kz')">KZ</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</header>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="Поиск..." oninput="filterMenu()"/>
+  <select id="categorySelect" onchange="filterMenu()">
+    <option value="all">Все</option>
+    <option value="pizza">Пицца</option>
+    <option value="pasta">Паста</option>
+    <option value="salad">Салаты</option>
+    <option value="soup">Супы</option>
+    <option value="dessert">Десерты</option>
+    <option value="icecream">Мороженое</option>
+    <option value="drinks">Напитки</option>
+  </select>
+  <button onclick="toggleCart()">🛒 <span id="cart-count">0</span></button>
+</div>
+
+<section id="menu" class="menu"></section>
+
+<!-- Корзина справа -->
+<div id="cart-sidebar" class="cart-sidebar">
+  <h2 id="cart-title">Корзина 🛒</h2>
+  <div id="cart-items"></div>
+  <p><span id="total-text">Итого:</span> <span id="total">0</span> ₸</p>
+  <button onclick="sendOrder()">WhatsApp</button>
+  <button onclick="closeCart()">Закрыть</button>
+</div>
+
+<!-- Нижние кнопки -->
+<div class="bottom-buttons">
+  <button onclick="callWaiter()">📞 Вызвать официанта</button>
+  <button onclick="payOnline()">💳 Оплата</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
